@@ -1,0 +1,25 @@
+import { Box } from '@mui/material'
+import { FC } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
+
+import Header from './components/header/Header'
+import PrivateRoute from './components/PrivateRoute'
+import Auth from './pages/Auth'
+import Home from './pages/Home'
+
+const App: FC = () => {
+  const { pathname } = useLocation()
+
+  return (
+    <Box className="flex min-h-screen flex-col">
+      {pathname !== '/auth' && <Header />}
+
+      <Routes>
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/" element={<PrivateRoute element={<Home />} />} />
+      </Routes>
+    </Box>
+  )
+}
+
+export default App

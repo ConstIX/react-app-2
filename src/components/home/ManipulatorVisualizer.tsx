@@ -31,8 +31,7 @@ const ManipulatorVisualizer: FC<{ position: { x: number; y: number } }> = ({ pos
 
       <Typography color="textSecondary">{`x: ${position.x}, y: ${position.y}`}</Typography>
 
-      <Box
-        className={`relative grid h-[300px] w-[300px] grid-cols-[repeat(${gridSize},_${gridCellSize}px)] grid-rows-[repeat(${gridSize},_${gridCellSize}px)] border border-gray-300`}>
+      <Box className="relative grid h-[300px] w-[300px] grid-cols-[repeat(30,_10px)] grid-rows-[repeat(30,_10px)] border border-gray-300">
         {Array.from({ length: gridSize * gridSize }).map((_, idx) => (
           <Box key={idx} className="border border-gray-200" />
         ))}
